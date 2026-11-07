@@ -1,0 +1,67 @@
+{
+  "language": "en",
+  "authorship_mark": "",
+  "limits": {
+    "page_timeout_s": 30,
+    "light_page_timeout_s": 15,
+    "hard_timeout_grace_s": 10,
+    "max_scrolls": 15,
+    "no_new_rounds_to_stop": 3,
+    "max_expansions": 25,
+    "max_jobs_per_page": 100,
+    "max_text_chars": 2000000,
+    "max_requests_per_page": 400,
+    "max_frames": 10,
+    "max_json_responses": 30,
+    "max_json_bytes": 2000000,
+    "max_pdf_bytes": 10000000,
+    "max_pdf_pages": 50
+  },
+  "run": {
+    "max_pages_per_run": 15,
+    "max_pages_per_start": 12,
+    "max_run_seconds": 900,
+    "max_depth": 0,
+    "max_followed_per_page": 15,
+    "max_pagination_pages": 5,
+    "max_probes_per_page": 25,
+    "max_probes_per_run": 200,
+    "max_pdfs_per_page": 5,
+    "follow_external": false,
+    "follow_ats": true,
+    "delay_between_pages_s": 1,
+    "followed_text_chars": 6000,
+    "max_retry_attempts": 1,
+    "retry_pause_s": 10,
+    "retry_after_starts": 1
+  },
+  "browser": {
+    "executable_path": null,
+    "locale": "en-US",
+    "viewport_width": 1366,
+    "viewport_height": 900,
+    "user_agent": null
+  },
+  "safety": {
+    "allow_private_hosts": false
+  },
+  "output": {
+    "screenshots": "never",
+    "report_text_chars": 200000,
+    "keep_runs": 10
+  },
+  "preflight": {
+    "probe_url": "https://example.com"
+  },
+  "site_overrides": {
+    "careers.playstation.com": {
+      "run": {
+        "max_pagination_pages": 10
+      }
+    }
+  },
+  "roles": {
+    "enabled": false,
+    "file": "config/roles.json"
+  }
+}

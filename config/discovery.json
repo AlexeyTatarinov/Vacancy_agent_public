@@ -1,0 +1,146 @@
+{
+  "_comment": "Поиск новых компаний (бесплатно). Источники: категории Википедии (+ сайт из Wikidata), подсказки Gemini (бесплатный ключ), собственный список. Каждый кандидат проверяется: есть ли публичная доска вакансий (ATS) и есть ли в ней роли из словаря.",
+  "max_new_per_run": 60,
+  "recheck_after_days": 30,
+  "workers": 6,
+  "wikipedia_categories": [
+    "Virtual reality companies",
+    "Video game companies of Spain",
+    "Video game companies of Portugal",
+    "Video game companies of France",
+    "Video game companies of Germany",
+    "Video game companies of Poland",
+    "Video game companies of the Czech Republic",
+    "Video game companies of Italy",
+    "Video game companies of the Netherlands",
+    "Video game companies of Sweden",
+    "Video game companies of Finland",
+    "Video game companies of Denmark",
+    "Video game companies of Ireland",
+    "Video game companies of the United Kingdom",
+    "Video game companies of Romania",
+    "Video game companies of Ukraine",
+    "Video game development companies",
+    "Video game localization",
+    "Video game testing companies",
+    "Video game companies of Kazakhstan",
+    "Software companies of Kazakhstan",
+    "Video game companies of Armenia",
+    "Software companies of Armenia",
+    "Video game companies of Georgia (country)",
+    "Software companies of Georgia (country)",
+    "Video game companies of Azerbaijan",
+    "Software companies of Azerbaijan"
+  ],
+  "wikipedia_limit_per_category": 120,
+  "gemini_queries": [
+    "game and VR/XR studios in Spain, Portugal, France, Italy and Germany that may hire QA testers",
+    "game and VR/XR studios in Poland, Czechia, Romania, Bulgaria, Ukraine and the Baltics that may hire QA testers",
+    "game and VR/XR studios in the Netherlands, Belgium, Nordics, Ireland and the UK that may hire QA testers",
+    "outsourcing companies for game QA, localization QA (LQA), platform certification and submission (TRC, TCR, XR, Lotcheck) in Europe",
+    "companies that port games to PlayStation, Xbox, Nintendo Switch and VR headsets (porting studios) in Europe",
+    "VR training, medical VR, industrial XR and simulation companies in Europe that employ QA or compliance staff"
+  ],
+  "seed": [
+    {
+      "name": "Keywords Studios",
+      "website": "https://www.keywordsstudios.com"
+    },
+    {
+      "name": "Testronic",
+      "website": "https://www.testronic.com"
+    },
+    {
+      "name": "Pole To Win",
+      "website": "https://www.ptw.com"
+    },
+    {
+      "name": "Lionbridge Games",
+      "website": "https://www.lionbridge.com"
+    },
+    {
+      "name": "Virtuos",
+      "website": "https://www.virtuosgames.com"
+    },
+    {
+      "name": "Testing Mind",
+      "website": "https://www.testingmind.com"
+    },
+    {
+      "name": "Altagram",
+      "website": "https://www.altagram.com"
+    },
+    {
+      "name": "Lingo Dev"
+    },
+    {
+      "name": "Enzyme Testing Labs"
+    },
+    {
+      "name": "Sumo Digital",
+      "website": "https://sumo-digital.com"
+    },
+    {
+      "name": "Virtual Programming"
+    },
+    {
+      "name": "Red Art Games"
+    },
+    {
+      "name": "Ziggurat Interactive"
+    },
+    {
+      "name": "QLOC",
+      "website": "https://qloc.com"
+    },
+    {
+      "name": "Room 8 Group",
+      "website": "https://room8group.com"
+    },
+    {
+      "name": "Ubisoft Barcelona"
+    },
+    {
+      "name": "Tessera Studios"
+    },
+    {
+      "name": "Streamline Studios"
+    },
+    {
+      "name": "d3t"
+    },
+    {
+      "name": "Lab42"
+    }
+  ],
+  "exclude_names": [
+    "Wargaming",
+    "Playrix",
+    "Nival",
+    "Lesta",
+    "Mail.ru",
+    "VK Play",
+    "Gaijin",
+    "Game Insight",
+    "Pixonic",
+    "Plarium",
+    "Playkot",
+    "Yandex",
+    "Taxi Maxim",
+    "Ice-Pick Lodge",
+    "GDEV",
+    "Indika",
+    "Mundfish",
+    "Atomic Heart",
+    "Veon",
+    "Igor Sysoev"
+  ],
+  "_exclude_comment": "Компании с российскими или белорусскими корнями исключены (project requirement).",
+  "wikipedia_search": [],
+  "gemini_queries_caucasus_central_asia": [
+    "game studios, VR/XR companies and game QA, localization or outsourcing companies in Kazakhstan",
+    "game studios, VR/XR companies and game QA, localization or outsourcing companies in Armenia",
+    "game studios, VR/XR companies and game QA, localization or outsourcing companies in Georgia (the country)",
+    "game studios, VR/XR companies and game QA, localization or outsourcing companies in Azerbaijan"
+  ]
+}

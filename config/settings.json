@@ -1,0 +1,18 @@
+{
+  "timezone": "Europe/Madrid",
+  "run_hour": 22,
+  "gemini_models": [
+    "gemini-3.5-flash-lite",
+    "gemini-3.8-flash"
+  ],
+  "batch_size": 8,
+  "max_page_jobs_per_company": 30,
+  "workers": 4,
+  "rediscover_after_days": 7,
+  "scrapedo_daily_budget": 200,
+  "telegram_max_items": 60,
+  "discovery_gemini_search": false,
+  "page_every_days": 3,
+  "retry_unreadable_days": 7,
+  "rules_autofit": true
+}

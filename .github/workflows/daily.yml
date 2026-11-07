@@ -1,0 +1,59 @@
+name: Daily vacancies
+
+on:
+  # Schedule (owner request, 2026-11-07): Monday and Thursday at 22:00 Madrid time.
+  # Two UTC runs cover winter/summer time; the program runs only when it is 22:xx in Madrid.
+  schedule:
+    - cron: "0 20 * * 1,4"
+    - cron: "0 21 * * 1,4"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Run regardless of the hour (true/false)"
+        default: "true"
+      only:
+        description: "Only companies whose name contains this text (optional)"
+        default: ""
+      telegram:
+        description: "Send the Telegram message (true/false)"
+        default: "true"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: vacancies
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Install browser for page reading
+        run: python -m playwright install --with-deps chromium
+      - name: Run agent
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          SCRAPEDO_TOKEN: ${{ secrets.SCRAPEDO_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          FORCE: ${{ github.event_name == 'workflow_dispatch' && inputs.force == 'true' && '1' || '' }}
+          ONLY: ${{ inputs.only }}
+          NO_TELEGRAM: ${{ github.event_name == 'workflow_dispatch' && inputs.telegram == 'false' && '1' || '' }}
+        shell: bash
+        run: |
+          mkdir -p logs
+          python -m agent.main 2>&1 | tee logs/last_run.txt
+      - name: Commit report and state
+        run: |
+          git config user.name "vacancy-bot"
+          git config user.email "vacancy-bot@users.noreply.github.com"
+          git add state reports docs logs
+          git diff --cached --quiet || (git commit -m "Daily vacancies $(date -u +%F)" && git push)
