@@ -1,1 +1,1 @@
-Local hour is 3, expected 22; skipping.
+Local hour is 4, expected 22; skipping.
